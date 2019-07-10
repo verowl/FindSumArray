@@ -1,0 +1,23 @@
+numbers=[1,2,3,5,5,6,7,8,15,10,11]
+
+def arraySum (numbers,x):
+
+    originalarray = numbers.copy()
+    numbers.sort()
+    pointer1 = 0
+    pointer2 = len(numbers)-1
+
+    while x != numbers[pointer1]+numbers[pointer2]:
+        if pointer1==pointer2:
+            print(originalarray,x,False)
+            return
+        if x < numbers[pointer1]+numbers[pointer2]:
+            pointer2 -=1
+        if x > numbers[pointer1]+numbers[pointer2]:
+            pointer1 +=1
+    if x == numbers[pointer1]+numbers[pointer2]:
+        print(originalarray,x,True)
+        print(numbers[pointer1],numbers[pointer2])
+
+
+arraySum(numbers,12)
